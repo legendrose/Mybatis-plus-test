@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nj.mybatisplus.samples.dao.DeviceMapper">
+  <resultMap id="BaseResultMap" type="com.nj.mybatisplus.samples.entity.Device">
+    <!--@mbg.generated-->
+    <!--@Table t_device-->
+    <id column="DEVICEID" jdbcType="BIGINT" property="deviceid" />
+    <result column="DEVICECODE" jdbcType="VARCHAR" property="devicecode" />
+    <result column="DEVICENAME" jdbcType="VARCHAR" property="devicename" />
+    <result column="DEVICEGROUP" jdbcType="VARCHAR" property="devicegroup" />
+    <result column="DEVICEDESC" jdbcType="LONGVARCHAR" property="devicedesc" />
+    <result column="LNG" jdbcType="VARCHAR" property="lng" />
+    <result column="LAT" jdbcType="VARCHAR" property="lat" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="DEVICETYPECODE" jdbcType="VARCHAR" property="devicetypecode" />
+    <result column="DEVICETYPENAME" jdbcType="VARCHAR" property="devicetypename" />
+    <result column="COMPCODE" jdbcType="VARCHAR" property="compcode" />
+    <result column="COMPNAME" jdbcType="VARCHAR" property="compname" />
+    <result column="ADUPGRADETYPE" jdbcType="TINYINT" property="adupgradetype" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="EDITTIME" jdbcType="TIMESTAMP" property="edittime" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    DEVICEID, DEVICECODE, DEVICENAME, DEVICEGROUP, DEVICEDESC, LNG, LAT, ADDRESS, DEVICETYPECODE, 
+    DEVICETYPENAME, COMPCODE, COMPNAME, ADUPGRADETYPE, CREATETIME, EDITTIME, CREATOR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_device
+    where DEVICEID = #{deviceid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_device
+    where DEVICEID = #{deviceid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="DEVICEID" keyProperty="deviceid"
+  parameterType="com.nj.mybatisplus.samples.entity.Device" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_device (DEVICECODE, DEVICENAME, DEVICEGROUP, 
+      DEVICEDESC, LNG, LAT, 
+      ADDRESS, DEVICETYPECODE, DEVICETYPENAME, 
+      COMPCODE, COMPNAME, ADUPGRADETYPE, 
+      CREATETIME, EDITTIME, CREATOR
+      )
+    values (#{devicecode,jdbcType=VARCHAR}, #{devicename,jdbcType=VARCHAR}, #{devicegroup,jdbcType=VARCHAR}, 
+      #{devicedesc,jdbcType=LONGVARCHAR}, #{lng,jdbcType=VARCHAR}, #{lat,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{devicetypecode,jdbcType=VARCHAR}, #{devicetypename,jdbcType=VARCHAR}, 
+      #{compcode,jdbcType=VARCHAR}, #{compname,jdbcType=VARCHAR}, #{adupgradetype,jdbcType=TINYINT}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{edittime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}
+      )
+  </insert>
+
+  <insert id="insertSelective" keyColumn="DEVICEID" keyProperty="deviceid" parameterType="com.nj.mybatisplus.samples.entity.Device" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_device
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="devicecode != null">
+        DEVICECODE,
+      </if>
+      <if test="devicename != null">
+        DEVICENAME,
+      </if>
+      <if test="devicegroup != null">
+        DEVICEGROUP,
+      </if>
+      <if test="devicedesc != null">
+        DEVICEDESC,
+      </if>
+      <if test="lng != null">
+        LNG,
+      </if>
+      <if test="lat != null">
+        LAT,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="devicetypecode != null">
+        DEVICETYPECODE,
+      </if>
+      <if test="devicetypename != null">
+        DEVICETYPENAME,
+      </if>
+      <if test="compcode != null">
+        COMPCODE,
+      </if>
+      <if test="compname != null">
+        COMPNAME,
+      </if>
+      <if test="adupgradetype != null">
+        ADUPGRADETYPE,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="edittime != null">
+        EDITTIME,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="devicecode != null">
+        #{devicecode,jdbcType=VARCHAR},
+      </if>
+      <if test="devicename != null">
+        #{devicename,jdbcType=VARCHAR},
+      </if>
+      <if test="devicegroup != null">
+        #{devicegroup,jdbcType=VARCHAR},
+      </if>
+      <if test="devicedesc != null">
+        #{devicedesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="lng != null">
+        #{lng,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="devicetypecode != null">
+        #{devicetypecode,jdbcType=VARCHAR},
+      </if>
+      <if test="devicetypename != null">
+        #{devicetypename,jdbcType=VARCHAR},
+      </if>
+      <if test="compcode != null">
+        #{compcode,jdbcType=VARCHAR},
+      </if>
+      <if test="compname != null">
+        #{compname,jdbcType=VARCHAR},
+      </if>
+      <if test="adupgradetype != null">
+        #{adupgradetype,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="edittime != null">
+        #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nj.mybatisplus.samples.entity.Device">
+    <!--@mbg.generated-->
+    update t_device
+    <set>
+      <if test="devicecode != null">
+        DEVICECODE = #{devicecode,jdbcType=VARCHAR},
+      </if>
+      <if test="devicename != null">
+        DEVICENAME = #{devicename,jdbcType=VARCHAR},
+      </if>
+      <if test="devicegroup != null">
+        DEVICEGROUP = #{devicegroup,jdbcType=VARCHAR},
+      </if>
+      <if test="devicedesc != null">
+        DEVICEDESC = #{devicedesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="lng != null">
+        LNG = #{lng,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        LAT = #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="devicetypecode != null">
+        DEVICETYPECODE = #{devicetypecode,jdbcType=VARCHAR},
+      </if>
+      <if test="devicetypename != null">
+        DEVICETYPENAME = #{devicetypename,jdbcType=VARCHAR},
+      </if>
+      <if test="compcode != null">
+        COMPCODE = #{compcode,jdbcType=VARCHAR},
+      </if>
+      <if test="compname != null">
+        COMPNAME = #{compname,jdbcType=VARCHAR},
+      </if>
+      <if test="adupgradetype != null">
+        ADUPGRADETYPE = #{adupgradetype,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="edittime != null">
+        EDITTIME = #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        CREATOR = #{creator,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DEVICEID = #{deviceid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nj.mybatisplus.samples.entity.Device">
+    <!--@mbg.generated-->
+    update t_device
+    set DEVICECODE = #{devicecode,jdbcType=VARCHAR},
+      DEVICENAME = #{devicename,jdbcType=VARCHAR},
+      DEVICEGROUP = #{devicegroup,jdbcType=VARCHAR},
+      DEVICEDESC = #{devicedesc,jdbcType=LONGVARCHAR},
+      LNG = #{lng,jdbcType=VARCHAR},
+      LAT = #{lat,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      DEVICETYPECODE = #{devicetypecode,jdbcType=VARCHAR},
+      DEVICETYPENAME = #{devicetypename,jdbcType=VARCHAR},
+      COMPCODE = #{compcode,jdbcType=VARCHAR},
+      COMPNAME = #{compname,jdbcType=VARCHAR},
+      ADUPGRADETYPE = #{adupgradetype,jdbcType=TINYINT},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      EDITTIME = #{edittime,jdbcType=TIMESTAMP},
+      CREATOR = #{creator,jdbcType=VARCHAR}
+    where DEVICEID = #{deviceid,jdbcType=BIGINT}
+  </update>
+<!--auto generated by MybatisCodeHelper on 2021-04-08-->
+  <select id="findByDevicecodeOrCompcodeOrderByAddress" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from t_device
+    where DEVICECODE=#{devicecode,jdbcType=VARCHAR} or COMPCODE=#{compcode,jdbcType=VARCHAR} order by ADDRESS asc
+  </select>
+<!--auto generated by MybatisCodeHelper on 2021-04-08-->
+  <update id="updateDevicecodeAndCompcodeByDevicecodeInAndCompcode">
+    update t_device
+    set DEVICECODE=#{updatedDevicecode,jdbcType=VARCHAR}, COMPCODE=#{updatedCompcode,jdbcType=VARCHAR}
+    where DEVICECODE in
+    <foreach item="item" index="index" collection="devicecodeCollection"
+          open="(" separator="," close=")">
+      #{item,jdbcType=VARCHAR}
+    </foreach>
+ and COMPCODE=#{compcode,jdbcType=VARCHAR}
+  </update>
+<!--auto generated by MybatisCodeHelper on 2021-04-08-->
+  <delete id="deleteByCompcodeAndDevicecodeIn">
+    delete from  t_device
+    where COMPCODE=#{compcode,jdbcType=VARCHAR} and DEVICECODE in
+    <foreach item="item" index="index" collection="devicecodes"
+          open="(" separator="," close=")">
+      #{item,jdbcType=VARCHAR}
+    </foreach>
+  </delete>
+<!--auto generated by MybatisCodeHelper on 2021-04-08-->
+  <select id="countByDevicecodeInAndCompcodeIsNotNullAndAddressAfter" resultType="java.lang.Integer">
+    select count(1)
+    from t_device
+    where DEVICECODE in
+    <foreach item="item" index="index" collection="devicecodeCollection"
+          open="(" separator="," close=")">
+      #{item,jdbcType=VARCHAR}
+    </foreach>
+ and COMPCODE is not null and ADDRESS <![CDATA[>]]> #{minAddress,jdbcType=VARCHAR}
+  </select>
+<!--auto generated by MybatisCodeHelper on 2021-04-08-->
+  <select id="findByDevicecodeBetweenAndDevicecodeIn" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from t_device
+    <where>
+<if test="minDevicecode != null">
+ and DEVICECODE <![CDATA[>]]> #{minDevicecode,jdbcType=VARCHAR} </if>
+<if test="maxDevicecode != null">
+ and  DEVICECODE <![CDATA[<]]> #{maxDevicecode,jdbcType=VARCHAR}</if>
+<if test="devicecodeCollection != null and devicecodeCollection.size() > 0">
+ and DEVICECODE in
+    <foreach item="item" index="index" collection="devicecodeCollection"
+          open="(" separator="," close=")">
+      #{item,jdbcType=VARCHAR}
+    </foreach>
+</if>
+    </where>
+  </select>
+<!--auto generated by MybatisCodeHelper on 2021-04-08-->
+  <select id="findByAll" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from t_device
+    <where>
+<if test="deviceid != null">
+ and DEVICEID=#{deviceid,jdbcType=BIGINT}</if>
+<if test="devicecode != null">
+ and DEVICECODE=#{devicecode,jdbcType=VARCHAR}</if>
+<if test="devicename != null">
+ and DEVICENAME=#{devicename,jdbcType=VARCHAR}</if>
+<if test="devicegroup != null">
+ and DEVICEGROUP=#{devicegroup,jdbcType=VARCHAR}</if>
+<if test="devicedesc != null">
+ and DEVICEDESC=#{devicedesc,jdbcType=LONGVARCHAR}</if>
+<if test="lng != null">
+ and LNG=#{lng,jdbcType=VARCHAR}</if>
+<if test="lat != null">
+ and LAT=#{lat,jdbcType=VARCHAR}</if>
+<if test="address != null">
+ and ADDRESS=#{address,jdbcType=VARCHAR}</if>
+<if test="devicetypecode != null">
+ and DEVICETYPECODE=#{devicetypecode,jdbcType=VARCHAR}</if>
+<if test="devicetypename != null">
+ and DEVICETYPENAME=#{devicetypename,jdbcType=VARCHAR}</if>
+<if test="compcode != null">
+ and COMPCODE=#{compcode,jdbcType=VARCHAR}</if>
+<if test="compname != null">
+ and COMPNAME=#{compname,jdbcType=VARCHAR}</if>
+<if test="adupgradetype != null">
+ and ADUPGRADETYPE=#{adupgradetype,jdbcType=TINYINT}</if>
+<if test="createtime != null">
+ and CREATETIME=#{createtime,jdbcType=TIMESTAMP}</if>
+<if test="edittime != null">
+ and EDITTIME=#{edittime,jdbcType=TIMESTAMP}</if>
+<if test="creator != null">
+ and CREATOR=#{creator,jdbcType=VARCHAR}</if>
+    </where>
+  </select>
+<!--auto generated by MybatisCodeHelper on 2021-04-08-->
+  <insert id="insertList">
+        INSERT INTO t_device(
+            DEVICEID,
+            DEVICECODE,
+            DEVICENAME,
+            DEVICEGROUP,
+            DEVICEDESC,
+            LNG,
+            LAT,
+            ADDRESS,
+            DEVICETYPECODE,
+            DEVICETYPENAME,
+            COMPCODE,
+            COMPNAME,
+            ADUPGRADETYPE,
+            CREATETIME,
+            EDITTIME,
+            CREATOR
+        )VALUES
+        <foreach collection="list" item="element" index="index" separator=",">
+        (
+            #{element.deviceid,jdbcType=BIGINT},
+            #{element.devicecode,jdbcType=VARCHAR},
+            #{element.devicename,jdbcType=VARCHAR},
+            #{element.devicegroup,jdbcType=VARCHAR},
+            #{element.devicedesc,jdbcType=LONGVARCHAR},
+            #{element.lng,jdbcType=VARCHAR},
+            #{element.lat,jdbcType=VARCHAR},
+            #{element.address,jdbcType=VARCHAR},
+            #{element.devicetypecode,jdbcType=VARCHAR},
+            #{element.devicetypename,jdbcType=VARCHAR},
+            #{element.compcode,jdbcType=VARCHAR},
+            #{element.compname,jdbcType=VARCHAR},
+            #{element.adupgradetype,jdbcType=TINYINT},
+            #{element.createtime,jdbcType=TIMESTAMP},
+            #{element.edittime,jdbcType=TIMESTAMP},
+            #{element.creator,jdbcType=VARCHAR}
+        )
+        </foreach>
+</insert>
+<!--auto generated by MybatisCodeHelper on 2021-04-08-->
+  <select id="findDevicecodeOrderByCompcode" resultType="java.lang.String">
+    select DEVICECODE
+    from t_device order by COMPCODE asc
+  </select>
+<!--auto generated by MybatisCodeHelper on 2021-04-08-->
+  <select id="findAllByAddressOrderByAddress" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from t_device
+    where ADDRESS=#{address,jdbcType=VARCHAR} order by ADDRESS asc
+  </select>
+</mapper>

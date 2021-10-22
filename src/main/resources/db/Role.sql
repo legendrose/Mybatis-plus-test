@@ -1,0 +1,9 @@
+-- auto Generated on 2021-04-13
+-- DROP TABLE IF EXISTS t_role;
+CREATE TABLE t_role(
+	role_id BIGINT (15) NOT NULL AUTO_INCREMENT COMMENT 'roleId',
+	`name` VARCHAR (50) UNIQUE NOT NULL COMMENT 'name',
+	`desc` VARCHAR (50) NOT NULL COMMENT 'desc',
+	user_name VARCHAR (50) NOT NULL COMMENT 'userName',
+	PRIMARY KEY (role_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 't_role';

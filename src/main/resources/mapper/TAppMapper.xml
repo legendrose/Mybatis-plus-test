@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nj.mybatisplus.samples.dao.TAppMapper">
+  <resultMap id="BaseResultMap" type="com.nj.mybatisplus.samples.entity.TApp">
+    <!--@mbg.generated-->
+    <!--@Table t_app-->
+    <id column="APPID" jdbcType="VARCHAR" property="appId" />
+    <result column="APPNAME" jdbcType="VARCHAR" property="appName" />
+    <result column="APPDESC" jdbcType="LONGVARCHAR" property="appDesc" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="userName" />
+    <result column="CREATEDATE" jdbcType="DATE" property="createDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    APPID, APPNAME, APPDESC, USERNAME, CREATEDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_app
+    where APPID = #{appId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from t_app
+    where APPID = #{appId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.nj.mybatisplus.samples.entity.TApp">
+    <!--@mbg.generated-->
+    insert into t_app (APPID, APPNAME, APPDESC, 
+      USERNAME, CREATEDATE)
+    values (#{appId,jdbcType=VARCHAR}, #{appName,jdbcType=VARCHAR}, #{appDesc,jdbcType=LONGVARCHAR},
+      #{userName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nj.mybatisplus.samples.entity.TApp">
+    <!--@mbg.generated-->
+    insert into t_app
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appId != null">
+        APPID,
+      </if>
+      <if test="appName != null">
+        APPNAME,
+      </if>
+      <if test="appDesc != null">
+        APPDESC,
+      </if>
+      <if test="userName != null">
+        USERNAME,
+      </if>
+      <if test="createDate != null">
+        CREATEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appId != null">
+        #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null">
+        #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="appDesc != null">
+        #{appDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nj.mybatisplus.samples.entity.TApp">
+    <!--@mbg.generated-->
+    update t_app
+    <set>
+      <if test="appName != null">
+        APPNAME = #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="appDesc != null">
+        APPDESC = #{appDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userName != null">
+        USERNAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATEDATE = #{createDate,jdbcType=DATE},
+      </if>
+    </set>
+    where APPID = #{appId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nj.mybatisplus.samples.entity.TApp">
+    <!--@mbg.generated-->
+    update t_app
+    set APPNAME = #{appName,jdbcType=VARCHAR},
+      APPDESC = #{appDesc,jdbcType=LONGVARCHAR},
+      USERNAME = #{userName,jdbcType=VARCHAR},
+      CREATEDATE = #{createDate,jdbcType=DATE}
+    where APPID = #{appId,jdbcType=VARCHAR}
+  </update>
+</mapper>
